@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './styles.css'
 const NavigationPanel = () => {
     return (
         <div className="App">
@@ -31,7 +31,7 @@ const NavigationPanel = () => {
                     <a className="nav-link" href="src/Components/NavigationPanel#">Issues</a>
                     <a className="nav-link" href="src/Components/NavigationPanel#">Marketplace</a>
                     <a className="nav-link" href="src/Components/NavigationPanel#">Explore</a>
-                <div className='notifications' style={{flexDirection:'row-reverse'}}>
+                <div className='notifications'>
                     <a className='notifications' href='#'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#fff"
                              className="bi bi-bell" viewBox="0 0 16 16">
@@ -40,6 +40,22 @@ const NavigationPanel = () => {
                         </svg>
                     </a>
                 </div>
+                            <button type="button" style={{marginLeft:9}}
+                                    className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <span className="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul className="dropdown-menu dropdown-menu-end">
+                                <li><a className="dropdown-item" href="#">Action</a></li>
+                                <li><a className="dropdown-item" href="#">Another action</a></li>
+                                <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                <li>
+                                    <hr className="dropdown-divider" />
+                                </li>
+                                <li><a className="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                    <img src='https://avatars.githubusercontent.com/u/19192189?v=4' style={{height:30, marginLeft:11}} className="img-thumbnail" alt="user badge" />
+
                 </div>
 
             </nav>

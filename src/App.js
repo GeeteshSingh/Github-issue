@@ -10,6 +10,7 @@ import {
     QueryClientProvider,
 } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import Boiler from "./Components/Wrapper";
 
 const queryClient = new QueryClient()
 
@@ -18,6 +19,7 @@ function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <NavigationPanel/>
+            <Boiler/>
             <ContainerView />
             <ReactQueryDevtools initialIsOpen={false} />
 

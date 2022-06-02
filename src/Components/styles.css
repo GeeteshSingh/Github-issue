@@ -1,6 +1,6 @@
 .clearfix {
     width: 80%;
-padding-left: 10px;
+    padding-left: 10px;
 }
 
 .pages {
@@ -11,9 +11,16 @@ padding-left: 10px;
 .label {
     margin-top: 20px;
     text-align: center;
+    margin-bottom: 10px;
 }
-.blockquote-footer{
+
+.blockquote-footer {
     flex-direction: row;
+}
+
+.modal-footer {
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .status {
@@ -22,4 +29,24 @@ padding-left: 10px;
     /*top: 10px;*/
     align-content: flex-start;
     margin-left: -18px;
+}
+
+.wrapper {
+    background-color: #f5f8fa;
+    color: blue;
+    font-weight: 400;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100px;
+}
+
+
+/*navigationpanel*/
+.notifications {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 310px;
+    justify-content: space-around;
 }
