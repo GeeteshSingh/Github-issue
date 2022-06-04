@@ -1,6 +1,8 @@
 .clearfix {
     width: 80%;
     padding-left: 10px;
+    height: auto;
+    margin-bottom: -24px;
 }
 
 .pages {
@@ -29,13 +31,14 @@
     /*top: 10px;*/
     align-content: flex-start;
     margin-left: -18px;
+    margin-bottom: -15px;
 }
 
 .wrapper {
     background-color: #f5f8fa;
     color: blue;
     font-weight: 400;
-    margin: auto;
+    /*margin-left: 20px;*/
     justify-content: center;
     align-items: center;
     align-content: center;
