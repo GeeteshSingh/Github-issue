@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css'
+
 const NavigationPanel = () => {
     return (
         <div className="App">
@@ -13,7 +14,8 @@ const NavigationPanel = () => {
                         </svg>
                     </a>
                     <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search or jump to..."
+                        <input className="form-control me-2" style={{backgroundColor: '#24292e', borderColor: '#grey'}}
+                               type="search" placeholder="Search or jump to..."
                                aria-label="Search"/>
                         <a className='navbar-search' href='src/Components/NavigationPanel#'
                            style={{marginLeft: -40, marginTop: 4.7}}>
@@ -26,35 +28,40 @@ const NavigationPanel = () => {
                             </svg>
                         </a>
                     </form>
-                    <a className="nav-link active" aria-current="page" href="src/Components/NavigationPanel#">Pull
+                    <a className="nav-link" style={{color: '#fff', fontWeight: '500'}} aria-current="page"
+                       href="src/Components/NavigationPanel#">Pull
                         Requests</a>
-                    <a className="nav-link" href="src/Components/NavigationPanel#">Issues</a>
-                    <a className="nav-link" href="src/Components/NavigationPanel#">Marketplace</a>
-                    <a className="nav-link" href="src/Components/NavigationPanel#">Explore</a>
-                <div className='notifications'>
-                    <a className='notifications' href='#'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#fff"
-                             className="bi bi-bell" viewBox="0 0 16 16">
-                            <path
-                                d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
-                        </svg>
-                    </a>
-                </div>
-                            <button type="button" style={{marginLeft:9}}
-                                    className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                <span className="visually-hidden">Toggle Dropdown</span>
-                            </button>
-                            <ul className="dropdown-menu dropdown-menu-end">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                <li>
-                                    <hr className="dropdown-divider" />
-                                </li>
-                                <li><a className="dropdown-item" href="#">Separated link</a></li>
-                            </ul>
-                    <img src='https://avatars.githubusercontent.com/u/19192189?v=4' style={{height:30, marginLeft:11}} className="img-thumbnail" alt="user badge" />
+                    <a className="nav-link" style={{color: '#fff', fontWeight: '500'}}
+                       href="src/Components/NavigationPanel#">Issues</a>
+                    <a className="nav-link" style={{color: '#fff', fontWeight: '500'}}
+                       href="src/Components/NavigationPanel#">Marketplace</a>
+                    <a className="nav-link" style={{color: '#fff', fontWeight: '500'}}
+                       href="src/Components/NavigationPanel#">Explore</a>
+                    <div className='notifications'>
+                        <a className='notifications' href='#'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#fff"
+                                 className="bi bi-bell" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <button type="button" style={{marginLeft: 9}}
+                            className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <span className="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul className="dropdown-menu dropdown-menu-end">
+                        <li><a className="dropdown-item" href="#">Action</a></li>
+                        <li><a className="dropdown-item" href="#">Another action</a></li>
+                        <li><a className="dropdown-item" href="#">Something else here</a></li>
+                        <li>
+                            <hr className="dropdown-divider"/>
+                        </li>
+                        <li><a className="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
+                    <img src='https://avatars.githubusercontent.com/u/19192189?v=4' style={{height: 30, marginLeft: 11}}
+                         className="img-thumbnail" alt="user badge"/>
 
                 </div>
 

@@ -53,3 +53,12 @@
     margin-left: 310px;
     justify-content: space-around;
 }
+
+
+.nav-wrapper{
+    color: black;
+    font-size: 14px;
+    text-decoration: none;
+    /*margin-left: 10px;*/
+    padding: 15px;
+}
