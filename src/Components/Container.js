@@ -8,7 +8,7 @@ const maxPostPage = 10;
 
 async function fetchPosts(pageNum) {
     const response = await fetch(
-        `https://api.github.com/repos/rails/rails/issues?&per_page=${maxPostPage}`
+        `https://api.github.com/repos/rails/rails/issues?&per_page=${maxPostPage}&page=${pageNum}`
     );
     return response.json();
 }

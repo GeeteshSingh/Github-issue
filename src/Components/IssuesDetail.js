@@ -1,5 +1,4 @@
-import { useQuery } from "react-query";
-import {Card} from "react-bootstrap";
+import {useQuery} from "react-query";
 
 async function fetchComments(number) {
     const response = await fetch(
@@ -8,8 +7,8 @@ async function fetchComments(number) {
     return response.json();
 }
 
-export function IssueDetail({ post }) {
-    const { data, isLoading, isError, error } = useQuery(
+export function IssueDetail({post}) {
+    const {data, isLoading, isError, error} = useQuery(
         ["comments", post.id],
         () => fetchComments(post.id)
     );
@@ -28,9 +27,9 @@ export function IssueDetail({ post }) {
     return (
         <>
             {data.map((comment) => (
-                <Card key={comment.id}>
-                    {comment.user.login}: {comment.labels.url}
-                </Card>
+                <span key={comment.id}>
+                    {comment.url}: {comment.labels.url}
+                </span>
             ))}
         </>
     );
