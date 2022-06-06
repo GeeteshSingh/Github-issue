@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useQuery, useQueryClient} from "react-query";
 import {Card} from 'react-bootstrap';
-import {PostDetail} from "./IssuesDetail";
+import {IssueDetail} from "./IssuesDetail";
 import './styles.css'
 
 const maxPostPage = 10;
@@ -82,7 +82,7 @@ const ContainerView = (issue) => {
                     Next page
                 </button>
             </div>
-            {selectedPost && <PostDetail post={selectedPost} />}
+            {selectedPost && <IssueDetail post={selectedPost} />}
             <footer className='blockquote-footer'>
                 <div className='label'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

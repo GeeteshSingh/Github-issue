@@ -1,14 +1,14 @@
-import { useQuery, useMutation } from "react-query";
+import { useQuery } from "react-query";
 import {Card} from "react-bootstrap";
 
-async function fetchComments(postId) {
+async function fetchComments(number) {
     const response = await fetch(
-        `https://api.github.com/repos/rails/rails/issues/45246/comments=${postId}`
+        `https://api.github.com/repos/rails/rails/issues/${number}/comments`
     );
     return response.json();
 }
 
-export function PostDetail({ post }) {
+export function IssueDetail({ post }) {
     const { data, isLoading, isError, error } = useQuery(
         ["comments", post.id],
         () => fetchComments(post.id)
@@ -27,10 +27,9 @@ export function PostDetail({ post }) {
 
     return (
         <>
-
             {data.map((comment) => (
                 <Card key={comment.id}>
-                    {comment.login}: {comment.labels.url}
+                    {comment.user.login}: {comment.labels.url}
                 </Card>
             ))}
         </>
