@@ -46,7 +46,8 @@ const ContainerView = (issue) => {
                 <Card
                     key={issue.id}
                     className="clearfix new-discussion-timeline js-check-all-container container-xl px-3 px-md-4 px-lg-5 mt-4"
-                    onClick={() => setSelectedPost(issue)}
+                    // onClick={() => setSelectedPost(issue)}
+                    onClick={() => console.log(IssueDetail)}
                 >
                     <div className='status'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className='status'>
