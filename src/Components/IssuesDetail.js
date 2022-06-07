@@ -1,5 +1,6 @@
 import {useQuery} from "react-query";
 import {Badge} from "react-bootstrap";
+import './styles.css'
 
 async function fetchComments(number) {
     const response = await fetch(
@@ -28,13 +29,20 @@ export function IssueDetail({post}) {
 
     return (
         <>
-            {data.map((comment) => (
-                <span key={comment.number}>
-                    {comment.url}: {comment.labels.url} <hr />
-                    {comment.labels.name}
-                    <Badge style={{color:`#{comment.labels.color}`}} />
+            <div className='CommentSection'>
+                <a href='/'>
+                    {data.map((issue) => (
+                        <span key={issue.id}>
+                    {issue.events_url}: {issue.user.login}
+                            <hr/>
+                            {issue.labels_url}
+                            {/*<Badge style={{color:`#{comment.labels.color}`}} />*/}
                 </span>
-            ))}
+                    ))}
+                </a>
+
+            </div>
+
         </>
     );
 }
