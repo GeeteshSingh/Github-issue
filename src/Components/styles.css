@@ -65,4 +65,6 @@
 
 .CommentSection{
     height: auto;
+    justify-content: center;
+    text-align: center;
 }

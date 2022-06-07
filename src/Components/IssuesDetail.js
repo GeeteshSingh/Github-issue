@@ -30,17 +30,16 @@ export function IssueDetail({post}) {
     return (
         <>
             <div className='CommentSection'>
-                <a href='/'>
-                    {data.map((issue) => (
-                        <span key={issue.id}>
-                    {issue.events_url}: {issue.user.login}
-                            <hr/>
-                            {issue.labels_url}
-                            {/*<Badge style={{color:`#{comment.labels.color}`}} />*/}
+                {data.map((issue) => (
+                    <span key={issue.id}>
+                        <img src={issue.user.avatar_url} className="img-thumbnail" style={{borderRadius:'55%', height:60}} alt="avatar"/>
+                     <p style={{fontFamily:'serif', fontSize:20}}>{issue.user.login}</p>
+                        <br/>
+                        <a href={issue.user.repos_url} target='_blank'>Repository</a>
+                        <br/>
+                        {/*<Badge style={{color:`#{comment.labels.color}`}} />*/}
                 </span>
-                    ))}
-                </a>
-
+                ))}
             </div>
 
         </>
