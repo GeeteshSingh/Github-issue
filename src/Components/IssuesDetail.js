@@ -10,7 +10,7 @@ async function fetchComments(number) {
     return response.json();
 }
 
-export function IssueDetail({post}) {
+export function IssueDetail({reset, post}) {
     const {data, isLoading, isError, error} = useQuery(
         ["comments", post.number],
         () => fetchComments(post.number)
@@ -30,10 +30,12 @@ export function IssueDetail({post}) {
     return (
         <>
             <div className='CommentSection'>
+                <button onClick={()=>{reset()}}>Back</button>
                 {data.map((issue) => (
                     <span key={issue.id}>
-                        <img src={issue.user.avatar_url} className="img-thumbnail" style={{borderRadius:'55%', height:60}} alt="avatar"/>
-                     <p style={{fontFamily:'serif', fontSize:20}}>{issue.user.login}</p>
+                        <img src={issue.user.avatar_url} className="img-thumbnail"
+                             style={{borderRadius: '55%', height: 60}} alt="avatar"/>
+                     <p style={{fontFamily: 'serif', fontSize: 20}}>{issue.user.login}</p>
                         <br/>
                         <a href={issue.user.repos_url} target='_blank'>Repository</a>
                         <br/>

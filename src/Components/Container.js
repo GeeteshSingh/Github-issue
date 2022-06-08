@@ -2,7 +2,10 @@ import {useEffect, useState} from "react";
 import {useQuery, useQueryClient} from "react-query";
 import {Card} from 'react-bootstrap';
 import {IssueDetail} from "./IssuesDetail";
+import Comments from './Comments'
 import './styles.css'
+import {Link, Routes, Route} from "react-router-dom";
+
 
 const maxPostPage = 10;
 
@@ -42,7 +45,25 @@ const ContainerView = (issue) => {
         );
     return (
         <>
-            {data.map((issue) => (
+            <div className="input-group mb-3" style={{marginTop: 25, width: '65%', paddingLeft: 143}}>
+                <button className="btn btn-outline-secondary dropdown-toggle" style={{fontWeight: 500}} type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">Filters
+                </button>
+                <ul className="dropdown-menu">
+                    <li><a className="dropdown-item" href="#">Action</a></li>
+                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                    <li>
+                        <hr className="dropdown-divider"/>
+                    </li>
+                    <li><a className="dropdown-item" href="#">Separated link</a></li>
+                </ul>
+                <input type="text" className="form-control" placeholder='is:issue is:open '
+                       aria-label="Text input with dropdown button"/>
+            </div>
+
+            {!selectedPost && data.map((issue) => (
                 <Card
                     key={issue.number}
                     className="clearfix new-discussion-timeline js-check-all-container container-xl px-3 px-md-4 px-lg-5 mt-4"
@@ -56,12 +77,12 @@ const ContainerView = (issue) => {
                             <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                         </svg>
                     </div>
-
-
+                    <Link to={`/issues/${issue.number}`}>
                     <Card.Title>
-                        <a style={{textDecoration: "none", color: '#000'}} href='#'>Bug: {issue.title}</a>
+                        Bug: {issue.title}
                     </Card.Title>
                     #{issue.number} Opened {issue.created_at} by {issue.user.login}
+                    </Link>
                 </Card>
             ))}
             <div className="pages">
@@ -83,7 +104,7 @@ const ContainerView = (issue) => {
                     Next page
                 </button>
             </div>
-            {selectedPost && <IssueDetail post={selectedPost}/>}
+            {selectedPost && <IssueDetail reset={()=>{setSelectedPost(null)}} post={selectedPost}/>}
             <footer className='blockquote-footer'>
                 <div className='label'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
