@@ -64,11 +64,17 @@
 }
 
 .CommentSection{
+    width: 80%;
     height: auto;
+    margin: 15px;
+    padding: 10px;
     justify-content: center;
-    text-align: center;
+}
+.details{
+padding: 10px;
 }
 .issueDetails{
     text-decoration: none;
     color: black;
+
 }

@@ -7,6 +7,8 @@ import {ReactQueryDevtools} from 'react-query/devtools'
 import Boiler from "./Components/Wrapper";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {IssueDetail} from "./Components/IssuesDetail";
+import {Form} from "react-bootstrap";
+import Footer from "./Components/Footer";
 
 const queryClient = new QueryClient()
 
@@ -22,6 +24,7 @@ function App() {
                     <Route path="/issues/:issue" element={<IssueDetail/>} exact />
                 </Routes>
             </BrowserRouter>
+            <Footer/>
             <ReactQueryDevtools initialIsOpen={false}/>
         </QueryClientProvider>
     );
