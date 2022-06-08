@@ -37,6 +37,7 @@ export function IssueDetail() {
                         <img src={issue.user.avatar_url} className="img-thumbnail"
                              style={{borderRadius: '55%', height: 60}} alt="avatar"/>
                      <p style={{fontFamily: 'serif', fontSize: 20}}>{issue.user.login}</p>
+                     <p style={{fontFamily: 'serif', fontSize: 20}}>{issue.body}</p>
                         <br/>
                         <a href={issue.user.repos_url} target='_blank'>Repository</a>
                         <br/>
