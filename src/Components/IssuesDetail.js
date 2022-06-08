@@ -1,19 +1,21 @@
 import {useQuery} from "react-query";
 import {Badge} from "react-bootstrap";
 import './styles.css'
+import { useParams } from 'react-router-dom';
 
 async function fetchComments(number) {
     const response = await fetch(
         `https://api.github.com/repos/rails/rails/issues/${number}/comments`
-        // `https://api.github.com/repos/{owner}/{repo}/issues/${number}/comments/`
     );
     return response.json();
 }
 
-export function IssueDetail({reset, post}) {
+export function IssueDetail() {
+    let { issue } = useParams();
+    console.log(issue)
     const {data, isLoading, isError, error} = useQuery(
-        ["comments", post.number],
-        () => fetchComments(post.number)
+        ["comments", issue],
+        () => fetchComments(issue)
     );
     if (isLoading) {
         return <h3>Loading</h3>;
@@ -30,8 +32,7 @@ export function IssueDetail({reset, post}) {
     return (
         <>
             <div className='CommentSection'>
-                <button onClick={()=>{reset()}}>Back</button>
-                {data.map((issue) => (
+                {data && data.map((issue) => (
                     <span key={issue.id}>
                         <img src={issue.user.avatar_url} className="img-thumbnail"
                              style={{borderRadius: '55%', height: 60}} alt="avatar"/>
@@ -39,7 +40,6 @@ export function IssueDetail({reset, post}) {
                         <br/>
                         <a href={issue.user.repos_url} target='_blank'>Repository</a>
                         <br/>
-                        {/*<Badge style={{color:`#{comment.labels.color}`}} />*/}
                 </span>
                 ))}
             </div>

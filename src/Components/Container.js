@@ -1,10 +1,9 @@
 import {useEffect, useState} from "react";
 import {useQuery, useQueryClient} from "react-query";
 import {Card} from 'react-bootstrap';
-import {IssueDetail} from "./IssuesDetail";
-import Comments from './Comments'
 import './styles.css'
-import {Link, Routes, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 
 const maxPostPage = 10;
@@ -63,12 +62,11 @@ const ContainerView = (issue) => {
                        aria-label="Text input with dropdown button"/>
             </div>
 
-            {!selectedPost && data.map((issue) => (
+            {data.map((issue) => (
                 <Card
                     key={issue.number}
                     className="clearfix new-discussion-timeline js-check-all-container container-xl px-3 px-md-4 px-lg-5 mt-4"
                     onClick={() => setSelectedPost(issue)}
-                    // onClick={() => console.log(IssueDetail)}
                 >
                     <div className='status'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" className='status'>
@@ -77,34 +75,34 @@ const ContainerView = (issue) => {
                             <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                         </svg>
                     </div>
-                    <Link to={`/issues/${issue.number}`}>
-                    <Card.Title>
-                        Bug: {issue.title}
-                    </Card.Title>
-                    #{issue.number} Opened {issue.created_at} by {issue.user.login}
+                    <Link className="issueDetails" to={`/issues/${issue.number}`}>
+                        <Card.Title>
+                            Bug: {issue.title}
+                        </Card.Title>
+                        #{issue.number} Opened {issue.created_at} by {issue.user.login}
                     </Link>
                 </Card>
             ))}
             <div className="pages">
-                <button
+                <Button
                     disabled={currentPage <= 1}
                     onClick={() => {
                         setCurrentPage((previousValue) => previousValue - 1);
                     }}
                 >
                     Previous page
-                </button>
-                <span>Page {currentPage}</span>
-                <button
+                </Button>
+                <span style={{padding:4}}>Page {currentPage}</span>
+                <Button
                     disabled={currentPage >= maxPostPage}
                     onClick={() => {
                         setCurrentPage((previousValue) => previousValue + 1);
                     }}
                 >
                     Next page
-                </button>
+                </Button>
             </div>
-            {selectedPost && <IssueDetail reset={()=>{setSelectedPost(null)}} post={selectedPost}/>}
+            {/*{selectedPost && <IssueDetail reset={()=>{setSelectedPost(null)}} post={selectedPost}/>}*/}
             <footer className='blockquote-footer'>
                 <div className='label'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
